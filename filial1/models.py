@@ -91,6 +91,10 @@ class Resultat(Order):
             self.food_status = 'обжиралова'
 
         self.final_price = self.food.start_price + self.ingridient.extra_price
+        # if self.final_price > 1000:
+        #     self.final_price = 'болше 1000'
+        # elif self.final_price < 1000:
+        #     self.final_price = 'меньше 1000'
         super().save(*args, **kwargs)  
 
 

@@ -46,8 +46,15 @@ ingridients_free = Ingridient.objects.create(name='free',extra_price=50,calories
 ingridients_fish = Ingridient.objects.create(name='fish',extra_price=120,calories=270)
 ingridients_rice = Ingridient.objects.create(name='rice',extra_price=70,calories=100)
 ingridients_tvorog = Ingridient.objects.create(name='tvorog',extra_price=100,calories=170)
+ingridients_egg = Ingridient.objects.create(name='eeg',extra_price=50,calories=120)
 
 result_shaurma = food_shaurma.orders.set([ingridients_beef, ingridients_chees, ingridients_salad,ingridients_free], through_defaults={'client':client1, 'worker':worker1})
+
+result_gamburger = food_gamburger.orders.set([ingridients_chicken, ingridients_salad], through_defaults={'client':client1, 'worker':worker1})
+result_pasta = food_pasta.orders.set([ingridients_salad,ingridients_egg,ingridients_chees,ingridients_tvorog],through_defaults={'client':client1, 'worker':worker1})
+result_sushi = food_sushi.orders.set([ingridients_rice,ingridients_fish,ingridients_egg],through_defaults={'client':client1, 'worker':worker1})
+result_boul = food_boul.orders.set([ingridients_rice,ingridients_chees,ingridients_free,ingridients_salad,ingridients_tvorog],through_defaults={'client':client1, 'worker':worker1})
+
 for fp in Resultat.objects.all():
     fp.save()
 
